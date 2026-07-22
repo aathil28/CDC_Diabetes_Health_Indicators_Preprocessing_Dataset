@@ -1,8 +1,10 @@
-# CDC Diabetes Health Indicators – Data Preprocessing & Exploratory Data Analysis
+# CDC Diabetes Health Indicators – Data Preprocessing & Model Building
 
 ## Overview
 
-This project demonstrates a comprehensive **Exploratory Data Analysis (EDA)** and **Data Preprocessing** workflow on the **CDC Diabetes Health Indicators** dataset from the **UCI Machine Learning Repository**. The notebook focuses on data exploration, cleaning, visualization, feature analysis, and preprocessing techniques to prepare the dataset for machine learning applications.
+This project presents a comprehensive workflow for **data preprocessing, exploratory data analysis (EDA), machine learning, ensemble learning, and deep learning** using the **CDC Diabetes Health Indicators** dataset from the **UCI Machine Learning Repository**.
+
+The project focuses on preparing the dataset for predictive modeling through data cleaning, feature analysis, preprocessing, model development, hyperparameter tuning, and performance evaluation. Multiple machine learning algorithms and an Artificial Neural Network (ANN) were implemented and compared to identify the best-performing model for diabetes prediction.
 
 **Dataset Source:** https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators
 
@@ -74,36 +76,95 @@ The dataset consists of **22 attributes**, including **21 predictor variables** 
 
 ---
 
-# Preprocessing
+# Data Preprocessing
 
 ## Data Cleaning
 
-### Missing Value Analysis
-- Check for missing values
-- Verify dataset completeness
+- Missing value analysis
+- Duplicate detection and removal
+- Outlier analysis using box plots
 
-### Duplicate Management
-- Identify duplicate records
-- Remove duplicate observations
+## Data Transformation
 
-### Outlier Analysis
-- Detect outliers using box plots
-- Retain outliers as they represent valid health observations
+### Encoding
+- Verified categorical feature encoding
+- No additional encoding required
+
+### Scaling
+- Applied Min-Max Scaling to the BMI feature
+
+### Feature Selection
+- Computed Mutual Information scores to identify important features for diabetes prediction
 
 ---
 
-# Data Transformation
+# Machine Learning Models
 
-### Encoding
-- Verify categorical feature encoding
-- No additional encoding required since all categorical variables are already numerically encoded
+The following machine learning models were implemented:
 
-### Scaling
-- Apply Min-Max Scaling to the continuous numerical feature (BMI)
+- Logistic Regression
+- Decision Tree Classifier
+- K-Nearest Neighbors (KNN)
 
-### Feature Selection
-- Compute Mutual Information scores
-- Analyze feature importance for diabetes prediction
+---
+
+# Validation Techniques
+
+The following validation techniques were used:
+
+- Train-Test Split
+- 5-Fold Cross Validation
+
+---
+
+# Hyperparameter Tuning
+
+The following tuning techniques were applied:
+
+- GridSearchCV
+- RandomizedSearchCV
+
+Each machine learning model was tuned using its respective estimator.
+
+---
+
+# Ensemble Models
+
+Bagging classifiers were implemented using:
+
+- Logistic Regression
+- Decision Tree Classifier
+- K-Nearest Neighbors (KNN)
+
+---
+
+# Deep Learning Model
+
+A Deep Learning model was developed using:
+
+- Artificial Neural Network (ANN)
+
+The ANN model was trained and compared with the best-performing machine learning models.
+
+---
+
+# Model Evaluation
+
+Models were evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- Weighted F1-Score
+
+The final comparison included:
+
+- Baseline Logistic Regression
+- Tuned Decision Tree
+- Bagging KNN
+- Artificial Neural Network (ANN)
+
+Among all evaluated models, the **Artificial Neural Network (ANN)** achieved the best overall performance.
 
 ---
 
@@ -115,8 +176,35 @@ The dataset consists of **22 attributes**, including **21 predictor variables** 
 - Matplotlib
 - Seaborn
 - Scikit-learn
+  - Logistic Regression
+  - Decision Tree Classifier
+  - K-Nearest Neighbors
+  - GridSearchCV
+  - RandomizedSearchCV
+  - KFold Cross Validation
+  - BaggingClassifier
   - MinMaxScaler
   - Mutual Information Classifier
+- TensorFlow
+- Keras
+- Google Colab
+
+---
+
+# Instructions to Run the Project
+
+1. Clone this repository.
+2. Open the notebook in **Google Colab**.
+3. Upload the dataset (`diabetes_012_health_indicators_BRFSS2015.csv`).
+4. Run the notebook cells sequentially.
+5. The notebook performs:
+   - Data preprocessing
+   - Exploratory Data Analysis
+   - Machine Learning model training
+   - Hyperparameter tuning
+   - Ensemble learning
+   - Deep Learning (ANN)
+   - Model evaluation and comparison
 
 ---
 
@@ -124,18 +212,30 @@ The dataset consists of **22 attributes**, including **21 predictor variables** 
 
 | Team Member | Contribution |
 |-------------|--------------|
-| **Aathil** | Imported required libraries, loaded the dataset, performed initial data exploration, analyzed dataset shape, inspected unique values, and generated value counts. |
-| **Namitha** | Performed duplicate detection and removal, missing value analysis, and outlier analysis. |
-| **Abhishek** | Created data visualizations, conducted correlation analysis, and computed Mutual Information for feature importance analysis. |
-| **Govind** | Performed data transformation, including verification of feature encoding and application of feature scaling. |
+| **Govind** | Data transformation, feature scaling, Logistic Regression model, K-Fold Cross Validation, GridSearchCV, RandomizedSearchCV, Bagging using Logistic Regression, and final model comparison. |
+| **Namitha** | Missing value analysis, duplicate removal, outlier analysis, Decision Tree model, K-Fold Cross Validation, GridSearchCV, RandomizedSearchCV, Bagging using Decision Tree, and Artificial Neural Network (ANN). |
+| **Aathil** | Dataset loading, initial exploration, K-Nearest Neighbors (KNN) model, K-Fold Cross Validation, GridSearchCV, RandomizedSearchCV, and Bagging using KNN. |
+| **Abhishek** | Data visualization, histogram analysis, box plot analysis, correlation analysis, and Mutual Information feature importance analysis. |
+
+---
 
 # Repository Structure
 
 ```text
-CDC_Diabetes_Preprocessing_EDA/
+CDC_Diabetes_Preprocessing_Model_Building/
 │
-├── CDC_Diabetes_Preprocessing_EDA.ipynb
+├── CDC_Diabetes_Preprocessing_Model_Building.ipynb
 ├── diabetes_012_health_indicators_BRFSS2015.csv
-├── LICENSE
-└── README.md
+├── README.md
+└── LICENSE
 ```
+
+---
+
+# Dataset Source
+
+**CDC Diabetes Health Indicators Dataset**
+
+UCI Machine Learning Repository
+
+https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators
